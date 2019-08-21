@@ -1,4 +1,4 @@
-package com.breach.dto;
+package com.breach.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,11 +11,14 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-public class Categories {
-	
+public class UserDetails {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer  categoriesId;
-	private String categoriesName;
+	private Integer userId;
+	private String name;
+	private String emil;
+	private String password;
+	private Integer roleId;
 
 }

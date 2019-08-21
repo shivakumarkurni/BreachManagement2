@@ -1,4 +1,4 @@
-package com.breach.dto;
+package com.breach.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,13 +11,11 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-public class RiskCalculation {
+public class UserRole {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer  calculationId;
-	private Integer  franchiseId;
-	private Integer  businessAreaId;
-	private Integer  categoriseId;
-	private String  profile;
+	private Integer roleId;
+	private String roleType;
 
 }
