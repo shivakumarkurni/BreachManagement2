@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.breach.dto.BreachEngineInput;
 import com.breach.dto.ResponseDto;
+import com.breach.dto.RiskChecking;
 import com.breach.service.BranchService;
 
 @CrossOrigin(allowedHeaders = { "*", "*/" }, origins = { "*", "*/" })
@@ -35,6 +36,13 @@ public class BreachController {
 		
 		
 	}
+	
+//	@PostMapping("/risk/check")
+//	public ResponseEntity<RiskChecking> riskCheck(@RequestBody  BreachEngineInput breachEngineInput) {
+//		return branchService.riskCheck(breachEngineInput);
+//		
+//	}
+
 	
 }
 

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import com.breach.controller.BreachController;
 import com.breach.dto.BreachEngineInput;
 import com.breach.dto.ResponseDto;
+import com.breach.dto.RiskChecking;
 import com.breach.entity.Breach;
 import com.breach.entity.Erisk;
 import com.breach.entity.RiskCalculation;
@@ -81,25 +82,26 @@ public class BranchServiceImpl implements BranchService {
 	
 
 
-	@Override
-	public void getFranchise() {
-		// TODO Auto-generated method stub
-		
-	}
 
 
-	@Override
-	public void getBussinessId() {
-		// TODO Auto-generated method stub
-		
-	}
 
 
-	@Override
-	public void getCategoryIdId() {
-		// TODO Auto-generated method stub
-		
-	}
+
+//	@Override
+//	public ResponseEntity<RiskChecking> riskCheck(BreachEngineInput breachEngineInput) {
+//		
+//		List<RiskCalculation> riskCalculations = riskCalculationRepository.findByFranchiseIdAndBusinessAreaIdAndCategoriseId(breachEngineInput.getFranchiseId(), breachEngineInput.getBussinessId(), breachEngineInput.getCategoryId());
+//		RiskChecking riskChecking=new RiskChecking();
+//		
+//		
+//		
+//		if(riskCalculations.isEmpty())
+//			riskChecking.setRisk(Erisk.LOW.name());
+//		else
+//			riskChecking.setRisk(riskCalculations.get(0).getProfile());
+//
+//		return ResponseEntity.status(HttpStatus.OK).body(riskChecking);
+//	}
 
 	
 
