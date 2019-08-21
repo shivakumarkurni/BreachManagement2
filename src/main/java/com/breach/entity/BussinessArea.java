@@ -17,5 +17,7 @@ public class BussinessArea {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer  bussinessId;
 	private String  bussinessName;
+	private Integer franchiseId;
 
-}
+
+} 
