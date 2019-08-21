@@ -73,8 +73,13 @@ public class BreachServiceImpl implements BreachService {
 		for(Categories categorie : categories) {
 			categoriesMap.put(categorie.getCategoriesId(), categorie.getCategoriesName());
 		}
+		List<Breach> breaches =null;
+		if(roleType.equalsIgnoreCase("Admin")) {
+			breaches = breachRepository.findAll();
+		} else {
+			breaches = breachRepository.findByRisk(roleType);
+		}
 		
-		List<Breach> breaches = breachRepository.findByRisk(roleType);
 		if (breaches != null) {
 			for(Breach breach : breaches) {
 				RiskDto riskDto = new RiskDto();
