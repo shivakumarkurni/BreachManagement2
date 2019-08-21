@@ -16,9 +16,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.breach.dto.BreachEngineInput;
 import com.breach.dto.DataDragAndDrop;
+/* breachEngine making breach and risk calculation
+ * author sairam
+ * @param  franchiseId int
+ * @param  bussinessId int
+ * @param  categoryId int
+ * @param   userId
+ *  */
+import com.breach.dto.LoginDto;
 import com.breach.dto.ResponseDto;
 import com.breach.dto.RiskChecking;
 import com.breach.dto.RiskDto;
+import com.breach.dto.UserDetailsDto;
 import com.breach.service.BranchService;
 import com.breach.service.BreachService;
 
@@ -28,6 +37,8 @@ public class BreachController {
 
 	@Autowired
 	BranchService branchService;
+	
+	
 	@Autowired
 	private BreachService breachService;
 
@@ -89,6 +100,7 @@ public class BreachController {
 		return branchService.franchise();
 		
 	}
+	
 	@GetMapping("/bussiness/{franchiseId}/bussiness")
 	public ResponseEntity<List<DataDragAndDrop>> bussiness(@PathVariable("franchiseId")Integer franchiseId){
 		LOGGER.info("BreachController :: bussiness");
@@ -100,10 +112,27 @@ public class BreachController {
 	@GetMapping("/category")
 	public ResponseEntity<List<DataDragAndDrop>> category(){
 		LOGGER.info("BreachController :: category");
-
 		return branchService.category();
+
+	
+}
+
 		
-	}
+		/***
+		 * Created login method where user is allowed to login with name and password 
+		 * based on user type.
+		 * @param loginDto
+		 * @return
+		 */
+		@PostMapping("/login")
+		public ResponseEntity<UserDetailsDto> login(@RequestBody LoginDto loginDto) {
+			
+			LOGGER.info("BreachController :: loginDto :{} ",loginDto);
+			return new ResponseEntity<>(breachService.login(loginDto), HttpStatus.OK);
+
+		}
+		
+	
 	@GetMapping("/identifiedBreach")
 	public ResponseEntity<List<DataDragAndDrop>> identifiedBreach(){
 		LOGGER.info("BreachController :: identifiedBreach");

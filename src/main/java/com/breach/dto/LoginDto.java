@@ -1,10 +1,15 @@
 package com.breach.dto;
-
+/***
+ * @author Anuradha
+ */
 import lombok.Getter;
 import lombok.Setter;
-
-@Setter @Getter
+@Getter
+@Setter
 public class LoginDto {
-private String userName;
-private String password;
+	
+	private String name;
+	private String password;
+
 }
+

@@ -1,5 +1,7 @@
 package com.breach.entity;
-
+/***
+ * @author Anuradha
+ */
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +18,7 @@ public class UserDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer userId;
-	private String UserName;
+	private String name;
 	private String email;
 	private String password;
 	private Integer roleId;
