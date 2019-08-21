@@ -20,7 +20,6 @@ import com.breach.dto.ResponseDto;
 import com.breach.dto.RiskChecking;
 import com.breach.entity.Breach;
 import com.breach.entity.RiskCalculation;
-import com.breach.exception.BreachException;
 import com.breach.repository.BreachRepository;
 import com.breach.repository.RiskCalculationRepository;
 import com.breach.repository.UserDetailsRepository;
@@ -60,8 +59,8 @@ public class BranchServiceImplTest {
 	@Test
 	public void breachEngine() {
 		
-		Mockito.when(riskCalculationRepository.findByFranchiseIdAndBusinessAreaIdAndCategoriseId(Mockito.anyInt(), Mockito.any(), Mockito.any())).thenReturn(riskCalculationList);
-		Mockito.when(breachRepository.save(breach)).thenReturn(breach);
+//		Mockito.when(riskCalculationRepository.findByFranchiseIdAndBusinessAreaIdAndCategoriseId(Mockito.anyInt(), Mockito.any(), Mockito.any())).thenReturn(riskCalculationList);
+//		Mockito.when(breachRepository.save(breach)).thenReturn(breach);
 		ResponseEntity<ResponseDto> actual = branchServiceImpl.breachEngine(breachEngineInput);
 		
 		Assert.assertEquals(HttpStatus.CREATED.value(), actual.getStatusCodeValue());
@@ -88,7 +87,7 @@ public class BranchServiceImplTest {
 		
 		
 		Mockito.when(riskCalculationRepository.findByFranchiseIdAndBusinessAreaIdAndCategoriseId(breachEngineInput.getFranchiseId(), breachEngineInput.getBussinessId(), breachEngineInput.getCategoryId())).thenReturn(riskCalculationList);
-		Mockito.when(breachRepository.save(breach)).thenReturn(breach);
+//		Mockito.when(breachRepository.save(breach)).thenReturn(breach);
 		ResponseEntity<ResponseDto> actual = branchServiceImpl.breachEngine(breachEngineInput);
 		Assert.assertEquals(HttpStatus.CREATED.value(), actual.getStatusCodeValue());
  
@@ -99,7 +98,7 @@ public class BranchServiceImplTest {
 	@Test
 	public void riskCheck() {
 		 
-		Mockito.when(riskCalculationRepository.findByFranchiseIdAndBusinessAreaIdAndCategoriseId(Mockito.anyInt(), Mockito.any(), Mockito.any())).thenReturn(riskCalculationList);
+//		Mockito.when(riskCalculationRepository.findByFranchiseIdAndBusinessAreaIdAndCategoriseId(Mockito.anyInt(), Mockito.any(), Mockito.any())).thenReturn(riskCalculationList);
 		ResponseEntity<RiskChecking> actual = branchServiceImpl.riskCheck(breachEngineInput);
 		
 		Assert.assertEquals(HttpStatus.OK.value(), actual.getStatusCodeValue());
