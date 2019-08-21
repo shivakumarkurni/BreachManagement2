@@ -32,6 +32,18 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	}
 	
 	
+	@ExceptionHandler(BreachNotFound.class)
+	public ResponseEntity<ResponseDto> globalExceptionHandler(BreachNotFound exception, WebRequest request) {
+		ResponseDto responseDto = new ResponseDto();
+		responseDto.setMessage(exception.getMessage());
+		responseDto.setStatusCode(401);
+		return new ResponseEntity<>(responseDto, HttpStatus.UNAUTHORIZED);
+
+	}
+	
+	
+	
+	
 
 	
 }

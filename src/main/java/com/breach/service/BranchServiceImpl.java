@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import com.breach.controller.BreachController;
 import com.breach.dto.BreachEngineInput;
 import com.breach.dto.ResponseDto;
-import com.breach.dto.RiskChecking;
 import com.breach.entity.Breach;
 import com.breach.entity.Erisk;
 import com.breach.entity.RiskCalculation;

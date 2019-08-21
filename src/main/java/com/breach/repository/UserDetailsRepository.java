@@ -9,4 +9,6 @@ import com.breach.entity.UserDetails;
 public interface UserDetailsRepository extends JpaRepository<UserDetails, Integer> {
 	
 
+
+
 }

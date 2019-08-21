@@ -4,7 +4,6 @@ import org.springframework.http.ResponseEntity;
 
 import com.breach.dto.BreachEngineInput;
 import com.breach.dto.ResponseDto;
-import com.breach.dto.RiskChecking;
 
 public interface BranchService {
 
