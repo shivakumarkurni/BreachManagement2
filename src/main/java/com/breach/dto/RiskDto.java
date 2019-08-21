@@ -15,5 +15,6 @@ public class RiskDto {
 	private String franchise;
 	private String business;
 	private String category;
+	private String status;
 
 }
