@@ -75,6 +75,47 @@ public class BreachUpdationControllerTest {
 
 	}
 
+	
+	@Test
+	public void bussiness() throws Exception {
+
+		mockMvc2.perform(MockMvcRequestBuilders.get("/bussiness/1/bussiness").contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.ALL).content(asJsonString(requestDTO))).andExpect(status().isOk());
+
+	}
+	
+	@Test
+	public void category() throws Exception {
+
+		mockMvc2.perform(MockMvcRequestBuilders.get("/category").contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.ALL).content(asJsonString(requestDTO))).andExpect(status().isOk());
+
+	}
+	
+	@Test
+	public void identifiedBreach() throws Exception {
+
+		mockMvc2.perform(MockMvcRequestBuilders.get("/identifiedBreach").contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.ALL).content(asJsonString(requestDTO))).andExpect(status().isOk());
+
+	}
+	
+	@Test
+	public void breachRisk() throws Exception {
+
+		mockMvc2.perform(MockMvcRequestBuilders.get("/risk/1").contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.ALL).content(asJsonString(requestDTO))).andExpect(status().isOk());
+
+	}
+	
+	@Test
+	public void franchise() throws Exception {
+
+		mockMvc2.perform(MockMvcRequestBuilders.get("/franchise").contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.ALL).content(asJsonString(requestDTO))).andExpect(status().isOk());
+
+	}
+
 	public static String asJsonString(final Object obj) {
 		try {
 			return new ObjectMapper().writeValueAsString(obj);

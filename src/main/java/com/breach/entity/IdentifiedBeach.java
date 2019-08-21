@@ -11,13 +11,12 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-public class BussinessArea {
-	
+public class IdentifiedBeach {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer  bussinessId;
-	private String  bussinessName;
-	private Integer franchiseId;
+	private Integer identifiedBeachId;
+	private String identifiedBeachName;
 
+	
 
-} 
+}
