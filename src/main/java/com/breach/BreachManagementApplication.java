@@ -9,5 +9,4 @@ public class BreachManagementApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BreachManagementApplication.class, args);
 	}
-
 }
