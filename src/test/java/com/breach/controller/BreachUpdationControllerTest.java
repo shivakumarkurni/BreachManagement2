@@ -15,6 +15,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.breach.dto.RequestDTO;
+import com.breach.service.BranchService;
+import com.breach.service.BranchServiceImpl;
 import com.breach.service.BreachStatusUpdateServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -27,13 +29,22 @@ public class BreachUpdationControllerTest {
 	@InjectMocks
 	BreachUpdationController breachUpdationController;
 
+	@InjectMocks
+	BreachController breachController;
+
+	@Mock
+	BranchServiceImpl branchServiceImpl;
+
 	MockMvc mockMvc;
+	MockMvc mockMvc2;
+
 
 	RequestDTO requestDTO = new RequestDTO();
 
 	@Before
 	public void setup() {
 		mockMvc = MockMvcBuilders.standaloneSetup(breachUpdationController).build();
+		mockMvc2 = MockMvcBuilders.standaloneSetup(breachController).build();
 
 		requestDTO.setUserId(1);
 		requestDTO.setBreachId(1);
@@ -45,6 +56,23 @@ public class BreachUpdationControllerTest {
 	public void testBreachStatusUpdate() throws Exception {
 
 		mockMvc.perform(MockMvcRequestBuilders.put("/breach/risk").contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.ALL).content(asJsonString(requestDTO))).andExpect(status().isOk());
+
+	}
+	
+	@Test
+	public void riskCheck() throws Exception {
+
+		mockMvc2.perform(MockMvcRequestBuilders.post("/risk/check").contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.ALL).content(asJsonString(requestDTO))).andExpect(status().isOk());
+
+	}
+
+	
+	@Test
+	public void breachEngine() throws Exception {
+
+		mockMvc2.perform(MockMvcRequestBuilders.post("/").contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.ALL).content(asJsonString(requestDTO))).andExpect(status().isOk());
 
 	}

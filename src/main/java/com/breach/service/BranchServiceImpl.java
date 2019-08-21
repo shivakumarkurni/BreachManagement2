@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import com.breach.controller.BreachController;
 import com.breach.dto.BreachEngineInput;
 import com.breach.dto.ResponseDto;
+import com.breach.dto.RiskChecking;
 import com.breach.entity.Breach;
 import com.breach.entity.Erisk;
 import com.breach.entity.RiskCalculation;
@@ -58,7 +59,7 @@ public class BranchServiceImpl implements BranchService {
 
 		List<RiskCalculation> riskCalculations = riskCalculationRepository.findByFranchiseIdAndBusinessAreaIdAndCategoriseId(breachEngineInput.getFranchiseId(), breachEngineInput.getBussinessId(), breachEngineInput.getCategoryId());
 		if(riskCalculations.isEmpty())
-			breach.setRisk(Erisk.LOW.name());
+			breach.setRisk(Erisk.LOW.name()); 
 		else
 			breach.setRisk(riskCalculations.get(0).getProfile());
 		
@@ -86,21 +87,21 @@ public class BranchServiceImpl implements BranchService {
 
 
 
-//	@Override
-//	public ResponseEntity<RiskChecking> riskCheck(BreachEngineInput breachEngineInput) {
-//		
-//		List<RiskCalculation> riskCalculations = riskCalculationRepository.findByFranchiseIdAndBusinessAreaIdAndCategoriseId(breachEngineInput.getFranchiseId(), breachEngineInput.getBussinessId(), breachEngineInput.getCategoryId());
-//		RiskChecking riskChecking=new RiskChecking();
-//		
-//		
-//		
-//		if(riskCalculations.isEmpty())
-//			riskChecking.setRisk(Erisk.LOW.name());
-//		else
-//			riskChecking.setRisk(riskCalculations.get(0).getProfile());
-//
-//		return ResponseEntity.status(HttpStatus.OK).body(riskChecking);
-//	}
+	@Override
+	public ResponseEntity<RiskChecking> riskCheck(BreachEngineInput breachEngineInput) {
+		
+		List<RiskCalculation> riskCalculations = riskCalculationRepository.findByFranchiseIdAndBusinessAreaIdAndCategoriseId(breachEngineInput.getFranchiseId(), breachEngineInput.getBussinessId(), breachEngineInput.getCategoryId());
+		RiskChecking riskChecking=new RiskChecking();
+		
+		
+		
+		if(riskCalculations.isEmpty())
+			riskChecking.setRisk(Erisk.LOW.name());
+		else
+			riskChecking.setRisk(riskCalculations.get(0).getProfile());
+
+		return ResponseEntity.status(HttpStatus.OK).body(riskChecking);
+	}
 
 	
 
