@@ -17,7 +17,7 @@ public class UserDetails {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer userId;
 	private String name;
-	private String emil;
+	private String email;
 	private String password;
 	private Integer roleId;
 
